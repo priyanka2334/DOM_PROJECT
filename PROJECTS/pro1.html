@@ -1,0 +1,72 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin-top: 20px;
+            height: 150px;
+            width: 350px;
+            border: 3px solid black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(162, 105, 159);
+        }
+        #btn{
+            margin: 10px;
+            padding: 5px;
+            background-color: rgb(144, 117, 117);
+        }
+        .color {
+            font-weight: bold;
+        }
+        .con{
+            height: 150px;
+            width: 350px;
+            text-align: center;
+            margin: 20% 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+    <div class="container">
+        <h2>Background Color: <span class="color" id="color">#f1f5f8</span></h2>
+        </div>
+        <button id="btn">Click me</button>
+        </div>
+    
+    <script>
+        let button = document.querySelector("#btn");
+        let color = document.querySelector("#color");
+        
+        button.addEventListener('click', changeBackgroundColor);
+
+        function changeBackgroundColor() {
+            let redcolor = Math.floor(Math.random() * 256);
+            let greencolor = Math.floor(Math.random() * 256);
+            let bluecolor = Math.floor(Math.random() * 256);
+
+            let hexColor = rgbToHex(redcolor, greencolor, bluecolor);
+            document.body.style.backgroundColor = hexColor;
+            color.textContent = hexColor;
+        }
+
+        function componentToHex(c) {
+            return c.toString(16).padStart(2, '0');
+        }
+
+        function rgbToHex(r, g, b) {
+            return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+        }
+    </script>
+</body>
+</html>
+

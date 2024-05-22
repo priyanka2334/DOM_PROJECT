@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media screen and (min-width:800px) {
+            .nav {
+                /* max-width: 1770px; */
+                display: flex;
+                justify-content: space-between;
+                border: 2px solid black;
+                padding: 10px;
+                gap: 100px;
+            }
+        }
+        .links {
+            display: flex;
+            gap: 20px;
+            font-size: 40px;
+            list-style: none;
+        }
+        .social-icons {
+            display: flex;
+            gap: 30px;
+            font-size: 40px;
+            text-decoration: none;
+        }
+        .container {
+            display: flex;
+            font-size: 30px;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .btn {
+            height: 40px;
+        }
+        @media screen and (max-width: 799px) {
+            .links,
+            .social-icons {
+                display: none;
+            }
+            .links.active,
+            .social-icons.active {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<script src="https://kit.fontawesome.com/1ce671e465.js" crossorigin="anonymous"></script>
+<body>
+    <nav class="nav">
+        <button class="btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="container">
+            <h1>Coding</h1>
+            <h1>Addict</h1>
+        </div>
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contacts.html">Contact</a></li>
+        </ul>
+        <ul class="social-icons">
+            <li>
+                <a href="https://www.twitter.com">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.behance.net">
+                    <i class="fab fa-behance"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sketch.com">
+                    <i class="fab fa-sketch"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let button = document.querySelector('.btn');
+            let links = document.querySelector('.links');
+            // let icons = document.querySelector('.social-icons');
+
+            button.addEventListener('click', function () {
+                links.classList.toggle('active');
+                icons.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

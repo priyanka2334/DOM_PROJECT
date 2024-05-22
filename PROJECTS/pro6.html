@@ -1,0 +1,360 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #f8f9fa; /* Optional: to give some background color */
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .he {
+            border: 2px solid black;
+            height: 100px;
+            width: 100%;
+            font-size: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .filter-btn {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            height: 100px;
+            width: 100px;
+        }
+        h1 {
+            font-size: 50px;
+            color: blue;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .section-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .menu-item {
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+        .photo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+        .item-info {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .item-info header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="he">
+            <img src="images/logo.jpeg" class="logo" alt="Logo">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Service</li>
+                <li>Order</li>
+            </ul>
+        </header>
+        <h1>Our Menu</h1>
+        <div class="btn-container">
+            <button class="filter-btn" type="button" data-id="all">All</button>
+            <button class="filter-btn" type="button" data-id="breakfast">Breakfast</button>
+            <button class="filter-btn" type="button" data-id="lunch">Lunch</button>
+            <button class="filter-btn" type="button" data-id="shakes">Shakes</button>
+        </div>
+        <div class="section-center"></div>
+    </div>
+    <script>
+        const menu = [
+            {
+                id: 1,
+                title: "Buttermilk Pancakes",
+                category: "breakfast",
+                price: 15.99,
+                img: "images/break.jpeg",
+                desc: "Delicious buttermilk pancakes with syrup and butter.",
+            },
+            {
+                id: 2,
+                title: "Diner Double",
+                category: "lunch",
+                price: 13.99,
+                img: "images/lunch.jpeg",
+                desc: "Classic diner double cheeseburger with fries.",
+            },
+            {
+                id: 3,
+                title: "Dhokla",
+                category: "dhokla",
+                price: 14.67,
+                img: "images/DO.jpeg",
+                desc: "Creamy and delicious milkshake with various flavors.",
+            }
+        ];
+
+        const sectionCenter = document.querySelector(".section-center");
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        window.addEventListener("DOMContentLoaded", function () {
+            displayMenuItems(menu);
+        });
+
+        filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                const category = e.currentTarget.dataset.id;
+                const menuCategory = menu.filter(function (menuItem) {
+                    if (menuItem.category === category) {
+                        return menuItem;
+                    }
+                });
+                if (category === 'all') {
+                    displayMenuItems(menu);
+                } else {
+                    displayMenuItems(menuCategory);
+                }
+            });
+        });
+
+        function displayMenuItems(menuItems) {
+            let displayMenu = menuItems.map(function (item) {
+                return `<article class="menu-item">
+                    <img src="${item.img}" class="photo" alt="${item.title}">
+                    <div class="item-info">
+                        <header>
+                            <h4>${item.title}</h4>
+                            <h4 class="price">$${item.price}</h4>
+                        </header>
+                        <p class="item-text">${item.desc}</p>
+                    </div>
+                </article>`;
+            });
+            displayMenu = displayMenu.join("");
+            sectionCenter.innerHTML = displayMenu;
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .he {
+            border: 2px solid black;
+            height: 100px;
+            width: 100%;
+            font-size: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 1000;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .filter-btn {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            height: 100px;
+            width: 100px;
+        }
+        h1 {
+            font-size: 50px;
+            color: blue;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .section-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .menu-item {
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+        .photo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+        .item-info {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .item-info header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="he">
+            <img src="images/logo.jpeg" class="logo" alt="Logo">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Service</li>
+                <li>Order</li>
+            </ul>
+        </header>
+        <h1>Our Menu</h1>
+        <div class="btn-container">
+            <button class="filter-btn" type="button" data-id="all">All</button>
+            <button class="filter-btn" type="button" data-id="breakfast">Breakfast</button>
+            <button class="filter-btn" type="button" data-id="lunch">Lunch</button>
+            <button class="filter-btn" type="button" data-id="shakes">Shakes</button>
+        </div>
+        <div class="section-center"></div>
+    </div>
+    <script>
+        const menu = [
+            {
+                id: 1,
+                title: "Buttermilk Pancakes",
+                category: "breakfast",
+                price: 15.99,
+                img: "images/break.jpeg",
+                desc: "Delicious buttermilk pancakes with syrup and butter.",
+            },
+            {
+                id: 2,
+                title: "Diner Double",
+                category: "lunch",
+                price: 13.99,
+                img: "images/lunch.jpeg",
+                desc: "Classic diner double cheeseburger with fries.",
+            },
+            {
+                id: 3,
+                title: "Dhokla",
+                category: "dhokla",
+                price: 14.67,
+                img: "images/DO.jpeg",
+                desc: "Steamed fermented batter derived from rice and split chickpeas.",
+            }
+        ];
+
+        const sectionCenter = document.querySelector(".section-center");
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        window.addEventListener("DOMContentLoaded", function () {
+            displayMenuItems(menu);
+        });
+
+        filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                const category = e.currentTarget.dataset.id;
+                const menuCategory = menu.filter(function (menuItem) {
+                    if (menuItem.category === category) {
+                        return menuItem;
+                    }
+                });
+                if (category === 'all') {
+                    displayMenuItems(menu);
+                } else {
+                    displayMenuItems(menuCategory);
+                }
+            });
+        });
+
+        function displayMenuItems(menuItems) {
+            let displayMenu = menuItems.map(function (item) {
+                return `<article class="menu-item">
+                    <img src="${item.img}" class="photo" alt="${item.title}">
+                    <div class="item-info">
+                        <header>
+                            <h4>${item.title}</h4>
+                            <h4 class="price">$${item.price}</h4>
+                        </header>
+                        <p class="item-text">${item.desc}</p>
+                    </div>
+                </article>`;
+            });
+            displayMenu = displayMenu.join("");
+            sectionCenter.innerHTML = displayMenu;
+        }
+    </script>
+</body>
+</html>
+

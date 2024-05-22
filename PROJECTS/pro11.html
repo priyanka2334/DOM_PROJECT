@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:hsl(172, 46%, 75%);
+        }
+        .title-h1 {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 55px;
+            /* text-align: center;
+            margin-bottom: 4rem ; */
+        }
+        .title-p{
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 35px;
+            /* width: 80%; */
+            /* margin: 0 auto;  */
+        }
+        .about{
+            border: 2px solid black;
+            background-color: white;
+            width: 700px;
+            margin-right: 2rem;
+            margin-top: 2rem;
+        }
+        .about-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content:space-around;
+            width: 1835px;
+            margin-top: 4rem;
+        }
+        .about-img img{
+            width: 48rem;
+            object-fit: cover;
+            height: 35rem;
+            margin-left: 2rem;
+        }
+        .btn-container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .tab-btn:nth-child(1){
+            border-top-left-radius: var(--radius);
+        }
+        .tab-btn:nth-child(3){
+            border-top-right-radius: var(--radius);
+        }
+        .tab-btn{
+            border: none;
+            font-size: 2rem;
+            padding: 1rem 4.4rem 1rem 4.3rem;
+            cursor: pointer;
+        }
+        h4{
+            font-size: 25px;
+        }
+        p{
+            font-size: 23px;
+        }
+        li{
+            font-size: 23px;
+        }
+        .tab-btn:hover{
+            background-color: white;
+        }
+        .about-content{
+            padding: 2rem;
+        }
+        /* hide content */
+        .content{
+            display: none;
+        }
+        .tan-btn.active{
+            background-color: rgb(137, 137, 137);
+        } 
+        .content.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="title">
+            <h1 class="title-h1">About</h1>
+            <p class="title-p">"Red Fort"</p>
+        </div>
+        <div class="about-center section-center">
+            <article class="about-img">
+                <img src="images/lal.jpeg">
+            </article>
+            <article class="about">
+                <div class="btn-container">
+                    <button class="tab-btn active" data-id="history">History</button>
+                    <button class="tab-btn" data-id="vision">Vision</button>
+                    <button class="tab-btn" data-id="goals">Goals</button>
+                </div>
+                <article class="about-content">
+                    <div class="content active" id="history">
+                        <h4>History</h4>
+                        <p>The Red Fort remains a symbol of India's rich history, reflecting 
+                            the grandeur of the Mughal era and the struggle for independence. Its 
+                            architectural beauty and historical importance continue to draw millions of 
+                            visitors from around the world, making it a lasting testament to 
+                            India's cultural heritage.
+                        </p>
+                    </div>
+                    <div class="content" id="vision">
+                        <h4>Vision</h4>
+                        <p>The vision of the Red Fort, beyond its historical and architectural
+                             significance, can be interpreted through various lenses, including
+                             cultural heritage, national identity, tourism, and preservation. Here’s a 
+                             detailed perspective on the vision of the Red Fort:
+                             Independence and Sovereignty: The Red Fort is a powerful symbol of India’s
+                              independence. Every year, the Prime Minister’s address to the nation
+                              from its ramparts on Independence Day reinforces its role as a national
+                               emblem of freedom and sovereignty.</p>
+                    </div>
+                    <div class="content" id="goals">
+                        <h4>Goals</h4>
+                        <p>    Enhance Educational Outreach: Use the Red Fort as an
+                             educational resource to teach visitors about Mughal 
+                             architecture, Indian history, and heritage conservation 
+                             through guided tours, museums, and interactive exhibits.
+                            Promote Cultural Understanding: Foster a deeper understanding
+                             of India's rich cultural heritage by highlighting the diverse
+                              narratives and historical events associated with the Red Fort.
+                            Host Cultural Events: Organize cultural events, performances, 
+                            and festivals that celebrate Indian heritage and promote cultural
+                             exchange, making the fort a lively center of cultural activity.
+                        </p>
+                    </div>
+                </article>
+            </article>
+        </div>
+    </section>
+    <script>
+        const about = document.querySelector(".about");
+        const btns = document.querySelectorAll(".tab-btn");
+        const articles = document.querySelectorAll(".content");
+        about.addEventListener('click', function(e){
+            const id = e.target.dataset.id;
+            if(id){
+                btns.forEach(function(btn){
+                    btn.classList.remove("active");
+                });
+                e.target.classList.add("active");
+                articles.forEach(function(article){
+                    article.classList.remove("active");
+                });
+                const element = document.getElementById(id);
+                element.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>

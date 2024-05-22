@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Project</title>
+    <style>
+        :root {
+            --clr-white: #fff;
+        }
+        .header {
+            min-height: 100vh;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        h1 {
+            color: white;
+        }
+        .switch-btn {
+            position: absolute;
+            bottom: 7%;
+            left: 7%;
+            width: 7rem;
+            height: 2rem;
+            display: flex;
+            border-radius: var(--radius);
+            align-items: center;
+            justify-content: space-around;
+            border: none;
+            transition: var(--transition);
+            background: var(--clr-white);
+        }
+        .switch-btn button {
+            display: inline-block;
+            font-size: 0.85rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <video class="video-container" id="video">
+            <source src="./images/vecteezy_ai-generative-the-jungle-is-a-beautiful-place-to-visit-but_33299615.mp4" type="video/mp4">
+            
+        </video>
+        <h1>Video Project</h1> 
+        <div class="switch-btn">
+            <button class="play-btn">play</button>
+            <button class="pause-btn">pause</button>
+        </div>
+    </header>
+    <script>
+        const playButton = document.querySelector(".play-btn");
+        const video = document.querySelector("#video");
+        const pauseButton = document.querySelector(".pause-btn");
+
+        playButton.addEventListener('click', function(){
+            video.play();
+        });
+
+        pauseButton.addEventListener('click', function(){
+            video.pause();
+        });
+    </script>
+</body>
+</html>
